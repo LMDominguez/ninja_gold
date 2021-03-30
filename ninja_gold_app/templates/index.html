@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/gold_style.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <label for="counter">Your Gold:</label>
+            <p class="counter">{{request.session.counter}}</p>
+            <div class="earn_gold">
+                <div class="earn_box">
+                    <h2>Farm</h2>
+                    <p>(earns 10-20 golds)</p>
+                    <form action="/get_farm" method = "POST">
+                        {% csrf_token %}
+                        <input type="submit" value = "Find Gold!" class = "earn_button">
+                    </form>
+                </div>
+                <span></span>
+            </div>
+            <div class="earn_gold">
+                <div class="earn_box">
+                    <h2>Cave</h2>
+                    <p>(earns 5-10 golds)</p>
+                    <form action="/get_cave" method = "POST">
+                        {% csrf_token %}
+                        <input type="submit" value = "Find Gold!" class = "earn_button">
+                    </form>
+                </div>
+                <span></span>
+            </div>
+            <div class="earn_gold">
+                <div class="earn_box">
+                    <h2>House</h2>
+                    <p>(earns 2-5 golds)</p>
+                    <form action="/get_house" method = "POST">
+                        {% csrf_token %}
+                        <input type="submit" value = "Find Gold!" class = "earn_button">
+                    </form>
+                </div>
+                <span></span>
+            </div>
+            <div class="earn_gold">
+                <div class="earn_box">
+                    <h2>Casino</h2>
+                    <p>(earns/takes 0-50 golds)</p>
+                    <form action="/get_casino" method = "POST">
+                        {% csrf_token %}
+                        <input type="submit" value = "Find Gold!" class = "earn_button">
+                    </form>
+                </div>
+            </div>
+            <p class="log">Could not figure out the activity log :(</p>
+        </div>
+    </div>
+</body>
+</html>
